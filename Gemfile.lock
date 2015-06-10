@@ -89,7 +89,6 @@ PLATFORMS
 DEPENDENCIES
   activesupport (~> 3.2.13)
   compass (~> 0.12.1)
-  crack
   foreman (~> 0.63.0)
   guard (~> 1.0.3)
   guard-coffeescript (~> 0.6.0)

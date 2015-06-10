@@ -2,7 +2,6 @@
 # Stoplight Provider for ThoughtWorks Go CI (http://jenkinsci.org)
 #
 #require 'xmlsimple'
-require 'crack'
 module Stoplight::Providers
   class ThoughtworksGo < MultiProjectStandard
     def provider
@@ -29,8 +28,9 @@ module Stoplight::Providers
     #end
 
     def projects
-      xmlHash = Crack::XML.parse(@response)
-      xmlHash["Projects"]["Project"].collect do |project|
+      hash = @response
+
+      hash["Projects"]["Project"].collect do |project|
         Stoplight::Project.new({
                                    :name => project['name'],
                                    :build_url => project['webUrl'],
